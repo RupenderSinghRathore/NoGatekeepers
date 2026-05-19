@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAdminAuth } from "../context/AdminAuthContext";
 
 export const AdminGate = ({ children }) => {
   const { isAuthenticated, login } = useAdminAuth();
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   if (isAuthenticated) {
     return children;
@@ -20,8 +22,16 @@ export const AdminGate = ({ children }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90 px-4 backdrop-blur-sm">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md border border-paper/15 bg-[#111b31] p-8 shadow-editorial"
+        className="relative w-full max-w-md border border-paper/15 bg-[#111b31] p-8 shadow-editorial"
       >
+        <button
+          type="button"
+          onClick={() => navigate("/")}
+          className="absolute right-4 top-4 text-paper/60 transition hover:text-paper"
+          aria-label="Close admin access"
+        >
+          X
+        </button>
         <p className="text-xs uppercase tracking-[0.3em] text-amber">Administrative Access</p>
         <h2 className="mt-3 font-display text-3xl text-paper">Campus Desk Control</h2>
         <p className="mt-3 text-sm leading-7 text-paper/70">
