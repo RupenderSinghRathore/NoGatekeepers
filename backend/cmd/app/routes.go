@@ -1,0 +1,23 @@
+package main
+
+import (
+	"net/http"
+
+	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/middleware"
+)
+
+func (app *application) routes() http.Handler {
+	r := chi.NewRouter()
+
+	r.NotFound(app.notFoundResponse)
+	r.MethodNotAllowed(app.methodNotAllowedResponse)
+
+	r.Use(middleware.Logger)
+	r.Use(app.recoverPanic)
+	r.Use(app.enableCORS)
+
+	r.Get("/v1/healthcheck", app.healthcheckHandler)
+
+	return r
+}
