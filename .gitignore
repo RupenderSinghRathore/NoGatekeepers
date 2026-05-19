@@ -1,0 +1,6 @@
+*.env
+Session.vim
+
+.vscode 
+*/tmp
+*/bin
