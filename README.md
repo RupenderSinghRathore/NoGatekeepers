@@ -80,41 +80,44 @@ Each contribution is tagged by college, branch, and urgency, then reinforced thr
 
 ```text
 NoGatekeepers/
-├── index.html
-├── package.json
-├── package-lock.json
-├── postcss.config.js
-├── tailwind.config.js
-├── vite.config.js
-├── public/
-├── src/
-│   ├── api/
-│   │   └── index.js
-│   ├── components/
-│   │   ├── AdminGate.jsx
-│   │   ├── DeadlineCountdown.jsx
-│   │   ├── Layout.jsx
-│   │   ├── Tags.jsx
-│   │   ├── TipCard.jsx
-│   │   ├── UrgencyBadge.jsx
-│   │   └── VerificationBar.jsx
-│   ├── config.js
-│   ├── context/
-│   │   ├── AdminAuthContext.jsx
-│   │   └── PreferencesContext.jsx
-│   ├── data/
-│   │   └── mockData.js
-│   ├── pages/
-│   │   ├── AdminPage.jsx
-│   │   ├── HomePage.jsx
-│   │   ├── NudgesPage.jsx
-│   │   ├── SubmitPage.jsx
-│   │   └── TipDetailPage.jsx
-│   ├── utils/
-│   │   └── date.js
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
+├── frontend/
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── postcss.config.js
+│   ├── tailwind.config.js
+│   ├── vite.config.js
+│   ├── .env.example
+│   ├── public/
+│   ├── src/
+│   │   ├── api/
+│   │   │   └── index.js
+│   │   ├── components/
+│   │   │   ├── AdminGate.jsx
+│   │   │   ├── DeadlineCountdown.jsx
+│   │   │   ├── Layout.jsx
+│   │   │   ├── Tags.jsx
+│   │   │   ├── TipCard.jsx
+│   │   │   ├── UrgencyBadge.jsx
+│   │   │   └── VerificationBar.jsx
+│   │   ├── config.js
+│   │   ├── context/
+│   │   │   ├── AdminAuthContext.jsx
+│   │   │   └── PreferencesContext.jsx
+│   │   ├── data/
+│   │   │   └── mockData.js
+│   │   ├── pages/
+│   │   │   ├── AdminPage.jsx
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── NudgesPage.jsx
+│   │   │   ├── SubmitPage.jsx
+│   │   │   └── TipDetailPage.jsx
+│   │   ├── utils/
+│   │   │   └── date.js
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+├── backend/
 └── README.md
 ```
 
@@ -135,6 +138,7 @@ cd NoGatekeepers
 ### Install dependencies
 
 ```bash
+cd frontend
 npm install
 ```
 
@@ -154,14 +158,14 @@ http://localhost:5173
 
 The project currently defaults to mock mode.
 
-In `src/config.js`:
+In `frontend/src/config.js`:
 
 ```js
 export const BASE_URL = "http://localhost:8000";
 export const USE_MOCK_API = true;
 ```
 
-When `USE_MOCK_API` is `true`, the app uses in-memory data from `src/data/mockData.js` and does not require a backend server.
+When `USE_MOCK_API` is `true`, the app uses in-memory data from `frontend/src/data/mockData.js` and does not require a backend server.
 
 ## API Contract
 
@@ -288,7 +292,7 @@ The frontend is already prepared to switch from mock data to a real backend with
 
 ### Current config
 
-File: `src/config.js`
+File: `frontend/src/config.js`
 
 ```js
 export const BASE_URL = "http://localhost:8000";
@@ -379,7 +383,7 @@ Contributions are welcome, especially around:
 - Keep components custom and lightweight
 - Preserve the project’s focus on actionable peer intelligence, not generic social features
 - Avoid adding heavy dependencies unless they solve a clear problem
-- If you implement the backend, follow the API contract already defined in `src/api/index.js`
+- If you implement the backend, follow the API contract already defined in `frontend/src/api/index.js`
 
 ## License
 
