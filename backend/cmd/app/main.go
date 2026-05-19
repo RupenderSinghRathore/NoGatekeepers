@@ -14,6 +14,7 @@ type application struct {
 	logger *log.Logger
 	port   int
 	wg     sync.WaitGroup
+	broker Broker
 }
 
 func main() {
@@ -32,6 +33,7 @@ func main() {
 
 	app.logger = logger
 	app.port = port
+	app.broker = *NewBroker()
 
 	app.serve()
 }

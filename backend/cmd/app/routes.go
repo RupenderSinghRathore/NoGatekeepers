@@ -17,7 +17,10 @@ func (app *application) routes() http.Handler {
 	r.Use(app.recoverPanic)
 	r.Use(app.enableCORS)
 
-	r.Get("/v1/healthcheck", app.healthcheckHandler)
+	r.Get("/healthcheck", app.healthcheckHandler)
+
+	r.Get("/feeds/status/stream", app.sseHandler)
+	r.Post("/feeds", app.broadcastHandler)
 
 	return r
 }
