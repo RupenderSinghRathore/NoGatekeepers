@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { flagTip, getTips, reviewTip } from "../api";
 import { AdminGate } from "../components/AdminGate";
 
@@ -37,6 +38,12 @@ export const AdminPage = () => {
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-amber">Admin Panel</p>
           <h2 className="mt-3 font-display text-4xl">Moderation and signal quality</h2>
+          <Link
+            to="/submit"
+            className="mt-4 inline-flex border border-amber px-4 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-amber transition hover:bg-amber hover:text-ink"
+          >
+            Submit Tip
+          </Link>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
