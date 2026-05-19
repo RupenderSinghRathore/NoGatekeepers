@@ -13,7 +13,7 @@ export default {
         moss: "#2f4f4f",
       },
       fontFamily: {
-        display: ['"Playfair Display"', "serif"],
+        display: ['"Inter"', "system-ui", "sans-serif"],
         body: ['"Inter"', "system-ui", "sans-serif"],
       },
       boxShadow: {
